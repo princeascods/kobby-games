@@ -76,18 +76,18 @@
             ranNumbers()
 
             if(finalAnswer == +answer.value){
-                verdict.innerHTML = "Yes you did it boy"
+                verdict.innerHTML = "Good job"
                 holdPoints += 1;
                 points.innerHTML = holdPoints 
             } else {
-                verdict.innerHTML = "Wabon"
+                verdict.innerHTML = "Incorrect"
                 discourage += 1;
                 holdPoints -= 1;
                 points.innerHTML = holdPoints                 
             }
 
             if(discourage == 5) {
-                verdict.innerHTML = " herhh go back to class 1"
+                verdict.innerHTML = "That's very poor"
             }
             answer.value =""
         }
