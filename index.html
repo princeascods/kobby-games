@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">    
+    <title>Mind Gams App</title>
+    <style>
+        body {
+            background-color: blanchedalmond;            
+        }
+        h1 {
+            font-family: 'Courier New', Courier, monospace;
+            color: red;
+            text-align: center;
+        }
+        main {
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        table {
+            border: 2px solid gray;
+            width: 500px;
+        }
+        main table tr {
+            font-size: 3rem;
+        }
+        td input {
+            height: 50px;
+            width: 100px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1 id="banner">Kobby Games</h1>
+    </header>
+
+    <main>
+        <table>
+            <td id="no1">4</td>
+            <td>+</td>
+            <td id="no2">7</td>
+            <td>=</td>
+            <td><input type="number" name="" id="answer"></td>
+            <td id="submit"><input type="button" value="submit"></td>
+        </table>
+    </main>
+
+    <h1 id="verdict"></h1>
+    <h1> <span id="points">0</span> point(s) </h1>
+
+    <script>
+        let no1 = document.getElementById('no1')
+        let no2 = document.getElementById('no2')
+        let answer = document.getElementById('answer')
+        let submit = document.getElementById('submit')
+        let verdict = document.getElementById('verdict')
+        let points = document.getElementById('points')
+
+        function ranNumbers () {
+            let ran1 = Math.round((Math.random() * 100))
+            let ran2 = Math.round((Math.random() * 100))
+            no1.innerHTML = ran1   //no1 value
+            no2.innerHTML = ran2
+        }   
+
+        submit.addEventListener('click' , checkAnswer , false)
+
+        let discourage = 0;
+        let holdPoints = 0;
+
+        function checkAnswer () {
+            let finalAnswer = +no1.innerHTML + (+no2.innerHTML)  
+            ranNumbers()
+
+            if(finalAnswer == +answer.value){
+                verdict.innerHTML = "Yes you did it boy"
+                holdPoints += 1;
+                points.innerHTML = holdPoints 
+            } else {
+                verdict.innerHTML = "Wabon"
+                discourage += 1;
+                holdPoints -= 1;
+                points.innerHTML = holdPoints                 
+            }
+
+            if(discourage == 5) {
+                verdict.innerHTML = " herhh go back to class 1"
+            }
+        }
+
+        
+        ranNumbers()
+    </script>
+</body>
+</html>
