@@ -1,2 +1,2 @@
 # kobby-games
-A small game website with HTML, CSS and Js
+A small website game with HTML, CSS and Js
